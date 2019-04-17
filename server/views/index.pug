@@ -1,0 +1,31 @@
+extends ./layouts/default
+
+block title
+  title kaa
+
+block content
+  include ./includes/header
+
+    .container-fluid
+      .sidebar
+      .content
+        .row
+          .col-md-6
+            .card
+
+  include ./includes/script
+
+  script.
+    var player = null;
+    $(document).read(function () {
+      $('.card-img-top').click(function (e){
+        var img = $(this).data('video')
+
+        if (!player){
+          player = new DPlayer({
+            conatiner: document.getElementbyid('video'),
+
+          })
+        }
+      })
+    })

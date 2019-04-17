@@ -4,16 +4,21 @@
   "description": "\"# douban-trailer\"",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/blurryfacex/douban-trailer.git"
   },
   "author": "",
-  "license": "ISC",1
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/blurryfacex/douban-trailer/issues"
   },
-  "homepage": "https://github.com/blurryfacex/douban-trailer#readme"
+  "homepage": "https://github.com/blurryfacex/douban-trailer#readme",
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-views": "^6.2.0"
+  }
 }
