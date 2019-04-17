@@ -1,5 +1,14 @@
+# dependencies
 node_modules
+
+# logs
+npm-debug.log
+
+# Nuxt generate
+dist
+
+# System
 .DS_Store
-package-lock.json
-jsconfig.json
-__dir__
+
+# Build
+build

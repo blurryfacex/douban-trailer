@@ -4,8 +4,7 @@
   "description": "\"# douban-trailer\"",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -18,9 +17,6 @@
   },
   "homepage": "https://github.com/blurryfacex/douban-trailer#readme",
   "dependencies": {
-    "child-process": "^1.0.2",
-    "koa": "^2.7.0",
-    "koa-views": "^6.2.0",
-    "puppeteer": "^1.14.0"
+    "koa": "^2.7.0"
   }
 }
