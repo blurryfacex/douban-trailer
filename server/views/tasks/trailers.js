@@ -12,6 +12,7 @@ const { resolve } = require('path')
     console.log(err)
   })
 
+
   child.on('exit', code => {
     if (invoked) return
     let err = code ===0 ? null : new Error('exit code' + code)
