@@ -1,6 +1,12 @@
 const mongoose = require('mongoose')
 const db = 'mongodb://173.82.255.6:27017/douban-trailer'
+const glob = require('glob')
+const { resolve } = require('path')
 mongoose.Promise = global.Promise
+
+exports.initSchema = () => {
+  glob.sync(resolve(__dirname, './schema', '**/*.js')).forEach(require)
+}
 
 exports.connect = () => {
   if (process.env.NODE_ENV !== 'production'){
