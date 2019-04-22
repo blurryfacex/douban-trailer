@@ -12,24 +12,25 @@ const CategorySchema = new Schema({
     ref: 'Movie'
   }],
 
-  mata: {
+  meta: {
     createdAt: {
       type: Date,
       default: Date.now()
     },
-    updateAt: {
+    updatedAt: {
       type: Date,
       default: Date.now()
     }
   }
 })
 
-CategorySchema.pre('save', next => {
+CategorySchema.pre('save', function (next) {
   if (this.isNew) {
     this.meta.createdAt = this.meta.updatedAt = Date.now()
   } else {
-    this.meta.updateAt = Date.now()
+    this.meta.updatedAt = Date.now()
   }
+  next()
 })
 
 mongoose.model('Category', CategorySchema)

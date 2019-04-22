@@ -37,7 +37,7 @@ const UserSchema = new Schema({
   }
 })
 
-UserSchema.pre('save', next => {
+UserSchema.pre('save', function (next) {
   if (this.isNew) {
     this.meta.createdAt = this.meta.updatedAt = Date.now()
   } else {
@@ -46,7 +46,7 @@ UserSchema.pre('save', next => {
   next()
 })
 
-UserSchema.pre('save', next => {
+UserSchema.pre('save', function (next) {
   if (!user.isModified('password')) return next()
 
   bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {

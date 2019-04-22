@@ -1,9 +1,8 @@
 const mongoose  = require('mongoose')
-const Movie = mongoose.Schema
 const Schema = mongoose.Schema
 const { ObjectId, Mixed } = Schema.Types
 
-const MovieSchema = new Movie({
+const MovieSchema = new mongoose.Schema({
   doubanId: {
     unique: true,
     type: String,
@@ -30,24 +29,25 @@ const MovieSchema = new Movie({
 
   tags: Array,
 
-  mata: {
+  meta: {
     createdAt: {
       type: Date,
       default: Date.now()
     },
-    updateAt: {
+    updatedAt: {
       type: Date,
       default: Date.now()
     }
   }
 })
 
-MovieSchema.pre('save', next => {
+MovieSchema.pre('save', function (next) {
   if (this.isNew) {
     this.meta.createdAt = this.meta.updatedAt = Date.now()
   } else {
-    this.meta.updateAt = Date.now()
+    this.meta.updatedAt = Date.now()
   }
+  next()
 })
 
 mongoose.model('Movie', MovieSchema)

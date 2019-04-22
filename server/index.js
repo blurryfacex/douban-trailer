@@ -10,10 +10,8 @@ const { connect, initSchema } = require('./database/init')
 
   initSchema()
 
-  const Movie = mongoose.model('Movie')
-  const movies = await Movie.find({})
+  require('./views/tasks/api')
 
-  console.log(movies)
 })()
 
 app.use(views(resolve(__dirname, './views'), {
