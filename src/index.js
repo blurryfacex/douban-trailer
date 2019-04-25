@@ -1,9 +1,7 @@
-import './assets/common.sass'
+import React from 'ract'
+import { render } from 'react-dom'
+import {
+  BrowserRouter
+} from 'react-router-dom'
+import App from './app'
 
-function changeTitle () {
-  window.$('#app').html('Pracel 包包')
-}
-
-setTimeout(function () {
-  changeTitle()
-}, 2000)
