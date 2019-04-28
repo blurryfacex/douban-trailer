@@ -12,7 +12,7 @@ const bundler = new Bundler(r('../../../src/index.html'), {
 export const dev = async app => {
   await bundler.bundle()
 
-  app.use(serve(r('../../../dist')))
+  app.use(server(r('../../../dist')))
   app.use(views(r('../../../dist')), {
     extension: 'html'
   })

@@ -5,6 +5,7 @@ const { resolve } = require('path')
 const { connect, initSchema } = require('./database/init')
 const R = require('ramda')
 const MIDDLEWARES = ['router', 'parcel']
+import config from '../config'
 
 const useMiddlewares = (app) => {
     R.map(
@@ -18,26 +19,13 @@ const useMiddlewares = (app) => {
     )(MIDDLEWARES)
   }
 
-;(async () => {
-  await connect()
-  initSchema()
-
-
+async function start () {
   const app = new Koa()
+  const { port } = config
+
   await useMiddlewares(app)
-  app.listen(4555)
-})()
-
-// app.use(router.routes()).use(router.allowedMethods())
-//
-// app.use(views(resolve(__dirname, './views'), {
-//   extension: 'pug'
-// }))
-//
-// app.use(async (ctx, next) => {
-//   await ctx.render('index', {
-//     me: 'luke',
-//     you: 'Scoot',
-//   })
-// })
-
+  const server = app.listen(port, () => {
+    console.log('start')
+  })
+}
+start()
