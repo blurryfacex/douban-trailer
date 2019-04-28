@@ -54,5 +54,4 @@ const sleep = time => new Promise(resolve => {
 
   process.send({result})
   process.exit(0)
-
 })()
